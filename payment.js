@@ -16,8 +16,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
  * ==========
  */ 
 var key = process.env.PAYU_KEY || "fB7m8s",
-  	txnid = randString(32);
-
+  	txnid = randString(32),
+  	// Set the testing environment variable to false if you are not testing.
+  	testEnv = process.env.TESTING || true;
 
 
 
@@ -105,7 +106,7 @@ app.post("/payment", function(req, res) {
 		obj.furl = "http://www.facebook.com/failure.html";
 
 		// Post to payment site.
-		request.post({ url: "https://secure.payu.in/_payment", form: obj }, function(err, httpRes, body) {
+		request.post({ url: (testEnv ? "https://test.payu.in/_payment" : "https://secure.payu.in/_payment"), form: obj }, function(err, httpRes, body) {
 			if (err) res.send(err);
 			if (httpRes.statusCode == 200) {
 				res.send(body);
