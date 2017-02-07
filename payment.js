@@ -102,8 +102,8 @@ app.post("/payment", function(req, res) {
 		// Add to object.
 		obj.productinfo = "None";
 		obj.service_provider = "payu_paisa";
-		obj.surl = "http://www.facebook.com/success.html";
-		obj.furl = "http://www.facebook.com/failure.html";
+		obj.surl = "http://localhost:1337/success";
+		obj.furl = "http://localhost:1337/failure";
 
 		// Post to payment site.
 		request.post({ url: (testEnv ? "https://test.payu.in/_payment" : "https://secure.payu.in/_payment"), form: obj }, function(err, httpRes, body) {
@@ -118,6 +118,11 @@ app.post("/payment", function(req, res) {
 		});
 
 	});	
+});
+
+// SUCCESS route
+app.post("/success", function(req, res) {
+	req.render("success.ejs", {data: req.body});
 });
 
 // CATCH ALL
