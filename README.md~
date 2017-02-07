@@ -21,4 +21,4 @@ Pay u money integration in Node JS
 
 ### To use this repo for production purposes:
 1. Make sure you follow the usage section above and emphasize on the second point.
-2. Remove `<%= JSON.stringify(data) %>` line in /views/success.ejs and /views/failure.ejs .
+2. Remove `<%= JSON.stringify(data) %>` line in /views/success.ejs and /views/failure.ejs
