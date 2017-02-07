@@ -125,6 +125,11 @@ app.post("/success", function(req, res) {
 	req.render("success.ejs", {data: req.body});
 });
 
+// FAILURE route
+app.post("/failure", function(req, res) {
+	req.render("failure.ejs", {data: req.body});
+});
+
 // CATCH ALL
 app.get("*", function(req, res) {
 	res.send("404 Not found!");
