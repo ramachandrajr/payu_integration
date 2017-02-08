@@ -1,4 +1,4 @@
-# payumoney_integration
+# payu_integration
 Pay u money integration in Node JS
 
 ### Usage

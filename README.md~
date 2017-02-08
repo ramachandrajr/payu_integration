@@ -12,6 +12,7 @@ Pay u money integration in Node JS
     node payment.js
 ```
 
+### Once done prequisite installation:
 4. Once the server starts up all you have to do is to pull up a html file(an example HTML file is present in the root folder of this repo). All that html file has to do is to send a POST request with a parameter 'amount'. 
 5. That's it you will redirected to a form that gets some really important info(Mandatory data) and that's it it redirects you straight to the payment.
 
