@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
  * Data essentials.  
  * ==========
  */ 
-var key = process.env.PAYU_KEY || "fB7m8s",
+var key = process.env.PAYU_KEY || "rjQUPktU",
   	txnid = randString(32),
   	// Set the testing environment variable to false if you are not testing.
   	testEnv = process.env.TESTING || true;
@@ -70,7 +70,7 @@ var createHash = (function(key, txn, a, fname, em, ph) {
 			 });
 		});			
 
-		hash.write( key + "|" + txn + "|" + a + "|" + "None" + "|" + fname + "|" + em + "|||||||||||" + (process.env.PAYU_SALT || "eRis5Chv") );
+		hash.write( key + "|" + txn + "|" + a + "|" + "None" + "|" + fname + "|" + em + "|||||||||||" + (process.env.PAYU_SALT || "e5iIg1jwi8") );
 		hash.end();
 	});
 	return promise;
@@ -122,12 +122,12 @@ app.post("/payment", function(req, res) {
 
 // SUCCESS route
 app.post("/success", function(req, res) {
-	req.render("success.ejs", {data: req.body});
+	res.render("success.ejs", {data: req.body});
 });
 
 // FAILURE route
 app.post("/failure", function(req, res) {
-	req.render("failure.ejs", {data: req.body});
+	res.render("failure.ejs", {data: req.body});
 });
 
 // CATCH ALL
